@@ -1,0 +1,123 @@
+# Mayur's World — Roadmap
+
+- [x] Phase 0 — Resume analysis and plan (approved)
+- [x] Phase 1 — Opening, island world, living nature, walking, scroll-to-walk, guidance, map, classic page
+- [x] Phase 2 — LinkedIn, glass reveals, human explorers + pets, day/night, sound, finale, wildlife, village, waterfalls, rideable bike
+- [x] Phase 3 — "Mayur" explorer, SUV + motorbike, jump & climb, cleaner cover
+
+## World 2.0 (user brief, 26 Oct) — one phase at a time, approval between each
+- [x] Phase 4 — Simple start & flowing story (awaiting review)
+  - [x] Cover: "Welcome to Mayur's World" → choose character → choose pet (pets visible in 3D) → world appears → Start the journey
+  - [x] Story appears in typing style at each key point, stays a while, fades — the journey never pauses
+  - [x] Key points unlock strictly in order; map shows locked / unlocked
+  - [x] World stays fully explorable after the finale
+  - [x] Remove yellow dots (road trail, sparkles, fireflies)
+  - [x] Far fewer buttons: Map + one menu; ride/jump only when useful
+- [x] Phase 4b — story card has no close button (fades on its own)
+- [x] Phase 4b — new explorers: Mayur, Kai (Sky Fighter), Sora (Limitless Sorcerer), Hana (Blossom Blade), Ren (Storm Ninja) with powers: fly / blink teleport / invisibility (Q or power button)
+- [x] Phase 4b — new pets with own behaviour: Bao panda, Pip penguin, Mochi bunny, Ember dragon (flies), Luna cat, Biscuit puppy, Rusty fox, + Byte
+- [x] Phase 4b — world much bigger and closer to the storybook references with clear detail (folded into Phase 5)
+- [x] Phase 5 — Big organised world (awaiting review): one long path Welcome Meadow → Whispering Woods → Golden Fields → Maple Village → City of Giants → Summit Cliffs → Sunset Harbor; ~2.5x larger island; region life (deer/fox/glade animals, farmers + tractors + crop plots + pasture, village street + plaza, city blocks + traffic + people, beach palms, pier, moored yacht, sailboats, dolphins)
+- [x] Phase 6 — Characters with super powers and new pets (done early in Phase 4b)
+- [x] Phase 7 — Vehicles & ocean (awaiting review): choose a ride at the start (2 bikes, supercar, coupe, luxury SUV, SUV, jeep) with own engine sounds; F calls it over; drives through rivers/shallows and over rocks with suspension feel; yacht at the pier; no land barrier — swim or sail out to sea; fish, whale, buoys
+- [x] Phase 8a — Walk into every house, inn, barn, mill, city block, landmark and the treehouse (E); furnished rooms, stairs to upper floors, TVs, fireplaces, info boards from the resume
+- [x] Phase 8a — Forest trails, treehouse, campsite and boulder gardens to climb; fewer trees and clutter
+- [x] Phase 8a — Explorer details (glasses, scarves, collars, cuffs, sashes, hair sway, blinking) + signature emote (G); pet outfits and behaviours (happy hops, hearts, naps, belly-slides, flame puffs)
+- [x] Phase 8a — Black ring road in the city with traffic looping round it
+- [x] Phase 8b — Fixes & polish (user brief, 27 Oct)
+  - [x] Nothing stands on any road (lamps, palms, trees); lamps are solid
+  - [x] Furniture faces the right way; beds in corners; Sit / Lie button near seats & beds
+  - [x] Doorway shows the outside, not a wall behind it
+  - [x] Roofs on the roofless village houses; proper tractor wheels
+  - [x] Ocean life swims forwards, mostly underwater, surfacing now and then (fish, dolphins, sharks, whale)
+  - [x] Story card short and screen-size aware on mobile
+  - [x] Every building has its own interior style matching its outside (village rustic, city modern)
+  - [x] All city skyscrapers enterable with modern interiors (lift between floors)
+  - [x] Pet wild & farm animals (they react); pamper your own pet
+  - [x] Deep performance pass (done in Phase 9)
+- [x] Phase 8c — Style & swag pass (user brief, 27 Oct, 10:53)
+  - [x] Books on empty shelves; bathroom curtain you can walk through; stairs to a rooftop terrace
+  - [x] Smooth exit from buildings (no glitch)
+  - [x] Seaside: beautiful seawalk/bridge, penguins on icebergs, realistic shore waves, real sandy beach
+  - [x] Remove "Academy"-style boards & explore/learn/discover labels; playful, flirty-funny place names on leafy wooden signs
+  - [x] Trees: fewer, spaced, leaf detail, shade variety; realistic flowers, grass, small plants
+  - [x] All messages in swag, attention-grabbing tone and fonts
+  - [x] New loading tagline and welcome line (no "full-stack engineer / agentic AI" line)
+  - [x] Characters: glowing jackets/outfits, weapons, crazy selection moves
+  - [x] Pets: outfits, magical effects/powers, good moves
+  - [x] Vehicles: lighting, colours, wraps, crazy wheels, engines, body skins
+  - [x] Map: no numbers or order, swag names and subtitles
+  - [x] More colour across the world; matte clay-like 3D finish on everything
+  - [x] Replace "7 places to discover" line; nature-inspired, uniform buttons and panels
+  - [x] Realistic flowing water
+  - [x] Story text as a narrative: dark romance, rizz, suspense, cliffhangers that build curiosity (resume facts only)
+- [x] Fix LinkedIn link (https://www.linkedin.com/in/mayur-shetty-4bab0932a); contact buttons = Resume, Email, GitHub, LinkedIn only (no Website) in classic portfolio and 3D world
+- [x] Phase 9 — Mobile, performance, accessibility QA
+  - [x] Draw calls roughly halved (landmarks/seaside merged, nearby-only tree shadows, off-screen people/animals skipped, far trees in haze hidden)
+  - [x] No mid-game shader stutters (stable light count, lights stripped from animal models, shared wind shader, warm-up after load)
+  - [x] Auto resolution drop on slow devices; lighter ground cover on phones; steadier shadows
+  - [x] Phone fixes: ride details no longer drawn over the car, tips sit above the thumb buttons, 40px tap targets
+- [x] Phase 10 — Flirty polish & realism (user brief, 27 Oct)
+  - [x] Flirty fonts; welcome line "I build AI agents to work with me, darling — never for me."
+  - [x] Petting: hand reaches out and waves; animals bend toward it lovingly
+  - [x] Skills: Agentic Guardrails, Vector Embeddings, Vector Databases (FAISS, Pinecone, ChromaDB), Computer Networking
+  - [x] Realistic walk/run with proper arm and leg swing
+  - [x] Every explorer has complete body parts incl. feet and matching footwear (Kai's feet missing)
+  - [x] Explorers loop their signature move in the picker; signature-move button in the world
+  - [x] Pets have a signature move: shown in the picker, done now and then in the world
+  - [x] Solid scenery: no walking through buildings, rocks, trees; jumping lands on top of rocks instead of sinking in
+  - [x] "Mayur's World" title as a wooden sign with creepers, knots, flowers and birds
+  - [x] Final optimisation pass after all changes
+  - [x] Story/info card shorter, see-through but readable, never covering the explorer or the path
+  - [x] Picker (explorer, pet, ride): names and descriptions never overlap the 3D model — clean spacing
+  - [x] Classic portfolio: remove the slanted "Mayur's World" title above the name
+  - [x] Content: certs "AI in Everyday Life — HP" + "Machine Learning — Anaconda" (below Google); achievement "5★ coder on CodeChef"; projects Manifest + DarkState; Email opens Gmail compose to mayurshetty9743@gmail.com — classic portfolio and 3D world
+- [x] New moves: Mayur jetpack flight; Sora backflip; Hana katana dance + flip; Ren dagger rush + backflip (weapons drawn in hand)
+- [x] Building/landmark floors and platforms are solid: stand, walk and jump on them, never sink in
+- [x] Bedsheet covers the explorer while lying in bed
+- [x] Roofs and wall tops of every building/house can be landed on and climbed (no falling through to the ground); interior walls solid; trees/animals solid
+- [x] Title: birds fly in, perch on the letters, hop and chirp; vines and flowers sway in the wind
+- [x] Sitting: explorer sits on the seat in front of the chair back (back never disappears into his body)
+- [x] Cast glow-up (user brief, 28 Oct)
+  - [x] Remove stick weapons (saber, staff, katana, daggers); give cool gear instead (jetpack, chain, gauntlets, headphones, petal wings, orbs)
+  - [x] Every explorer has their own super power (no two share one)
+  - [x] Every pet has its own working ability + its own signature move
+  - [x] Rename Mayur's explorer to "Shetty"; flirty, dark-romance names for all other explorers, pets and rides
+  - [x] Outfits: long coats, hoodies with glowing (radium) lines, baggy jeans; muscular aesthetic build (biceps, V-shape); neat hairstyles
+- [x] Fix: entering any building shows "something went wrong" (28 Oct)
+- [x] Picker: don't describe outfits under explorer names (28 Oct)
+- [x] Relax spot: sit back with a juice and enjoy the view (28 Oct)
+- [x] Rooftop loungers: proper lounger shape; lying/relaxing on them never sinks the head into the bed (28 Oct)
+- [x] Make "this place" prettier with chairs and flower vases around it (28 Oct)
+- [x] Fish detail: eyes, fins, tails on the little green fish and the big ones (28 Oct)
+- [x] Lighthouse beam: realistic, sweeps down onto the water instead of stopping mid-air (28 Oct)
+- [x] Penguins climb up onto the icebergs instead of passing through the ice (28 Oct)
+- [x] Trophy spot: more beautiful, detailed, curvy trophy; explorer can lift it overhead and celebrate (28 Oct)
+- [x] Bro handshake (dap) with villagers / people you meet (28 Oct)
+- [x] Skills plaza (crystal + floating panels): luxe cyberpunk tech cube, venom-like flowing waves, sky blue / black / dark blue / purple (28 Oct)
+- [x] Map: real top-down view of the world with places marked, neat; tap any place to teleport there (28 Oct)
+- [x] Classic portfolio: headline "Full Stack Developer | Agentic AI | Generative AI"; flirty, impressive intro line under it (28 Oct)
+- [x] Jeep: spare tyre on the back stays still (only road wheels spin) (28 Oct)
+- [x] Rides: more solid 3D bodies, wraps, nitro flames/boost (28 Oct)
+- [x] Title sign stays still; only its creepers and flowers sway, in gusty, varied wind directions (28 Oct)
+- [x] Title birds fly in from / out past the screen edge — never pop in or vanish mid-air (28 Oct)
+- [x] Lighthouse beam sweeps a 180° arc over the sea only — never across land or city roads (28 Oct)
+- [x] Rides: replace with supercar / hypercar-style cars (Pagani, Bugatti, Lambo vibes) and race bikes (Ninja vibes), unbranded; drop the tacky glow lines; flirty names (28 Oct)
+- [x] Yacht: luxury look with private pool, dining area, people on deck and a control room (bridge)
+- [x] Waterfall: make it look real (layered falling sheets, mist, splash foam)
+- [x] Camera: scroll (laptop) / swipe (phone) orbits the view 360° around the character without moving him
+- [x] Tractors (user reminded): more detailed tractor, seated driver, crop gets harvested where the tractor passes, varied routes around the fields (not back-and-forth)
+- [x] Rides: sit on top of the ground (not half sunk), tyres spin hard / slip on steep climbs, bigger nitro gas plume
+- [x] Rides can't drive through waterfalls (solid rock/water curtain blocks them)
+- [x] All building stairs: side rails/supports are solid so you can't walk off the side and fall
+- [x] Treehouse: nicer treehouse + circular spiral stairs winding up the trunk, railings both sides that stop you falling
+- [x] Trees: real-looking (branches, tiny leaf clusters, bark detail), leaves fall in strong wind, birds land/fly off, squirrel holes + squirrels climbing trunks
+- [x] Rides look too alike: give each a distinct silhouette + more detail; smooth/round sharp edges on rides, pets, buildings and world props; more building detail
+- [x] Treehouse swing: playable (E to sit + swing), vines wrapped on ropes, hanging flowers
+- [x] Buildings: every building sits on the ground (foundation/plinth reaches the terrain on slopes, no floating)
+- [x] Campsite: bigger detailed tent with an open entrance, cloth ripples in the wind, natural moving fire, logs properly stacked in the fire ring
+- [x] Animals (all farm + wild): eyes + more detail, smoother natural movement
+- [x] Phone: pet/action button must not sit behind the power button
+- [x] Mobile HUD: buttons overlap on phones — space them out, never overlap (user screenshot)
+- [x] Phone pickers (character / pet / ride): fit fully on screen, no cut-off, no scrolling
+- [x] Pinch zoom (phones): island overview fits portrait screens; map fits the screen + two-finger pinch zoom/pan on the map; pinch zooms the 3D camera in/out in the world
