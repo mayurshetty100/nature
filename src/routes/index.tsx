@@ -33,16 +33,16 @@ export const Route = createFileRoute("/")({
   ssr: false,
   head: () => ({
     meta: [
-      { title: "Mayur's World — An Explorable 3D Portfolio of Mayur Shetty" },
+      { title: "Mayur's Wonderworld — An Explorable 3D Miniature Universe by Mayur Shetty" },
       {
         name: "description",
         content:
-          "Walk through a living storybook island to discover Mayur Shetty's journey — Full Stack Developer | Agentic AI | Generative AI.",
+          "Walk through a living miniature adventure universe to discover Mayur Shetty's journey — Full Stack Developer | Agentic AI | Generative AI.",
       },
-      { property: "og:title", content: "Mayur's World — An Explorable 3D Portfolio" },
+      { property: "og:title", content: "Mayur's Wonderworld — An Explorable 3D Miniature Universe" },
       {
         property: "og:description",
-        content: "A magical floating island where every road leads to a chapter of Mayur Shetty's professional journey.",
+        content: "An adorable miniature diorama world where every road leads to a chapter of Mayur Shetty's professional journey.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

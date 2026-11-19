@@ -209,13 +209,14 @@ flowchart TD
   - [x] Analyze all 8 new design reference images and current world snapshots.
   - [x] Formulate master pastel color tokens and typography hierarchy.
   - [x] Produce `WORLD_REDESIGN_MASTER_PLAN.md`.
-- [ ] **Phase 1: Global Design System & UI Foundations**
-  - [ ] Implement master pastel color system in `styles.css`.
-  - [ ] Configure Fredoka + Nunito typography hierarchy.
-  - [ ] Redesign `WorldButton`, pill badges, and glassmorphic card primitives.
-  - [ ] Transform `LoadingScreen.tsx` with pastel clay theme and decorative vines.
-  - [ ] Transform `OpeningScreen.tsx` (Welcome Island flow) with the new world identity.
-  - [ ] Run test suites & build verification. Present for inspection.
+- [x] **Phase 1: Global Design System & UI Foundations**
+  - [x] Implement master pastel color system in `styles.css`.
+  - [x] Configure Fredoka + Nunito typography hierarchy across all headers, cards, and UI.
+  - [x] Redesign `WorldButton`, pill badges, and claymorphic card primitives (`.clay-card`, `.clay-pill`, `.reveal-shell`).
+  - [x] Transform `LoadingScreen.tsx` with pastel clay theme, animated progress track, and heartwarming tips.
+  - [x] Transform `OpeningScreen.tsx` (Welcome & Step Flow) with Mayur's Wonderworld identity.
+  - [x] Transform `TitleSign.tsx` with handcrafted vector clay sign for "Mayur's Wonderworld" with animated bluebirds and flowers.
+  - [x] Verify production build and test suites (16/16 suites passing, 90/90 tests).
 - [ ] **Phase 2: World Environment Foundations**
   - [ ] SkyDome shader update (dreamy pastel gradient: peach, lilac, baby blue).
   - [ ] Lighting & ambient tuning (soft clay lighting, gentle directional sun).

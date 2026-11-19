@@ -1,38 +1,49 @@
 import { useEffect, useRef } from "react";
 import { sound } from "@/game/audio";
 import { useGame } from "@/game/store";
-import titleWood from "@/assets/title-wood.webp";
 
 /*
- * The wooden "Mayur's World" sign, alive: two bluebirds fly in, perch on the
- * letters, hop, peck and tweet, then fly off and come back; creepers hang
- * and sway in the wind with blossoms on them, and petals drift down.
- * Coordinates are in the sign image's own pixels (1200 × 580).
+ * The handcrafted "Mayur's Wonderworld" title sign in pastel claymorphism:
+ * Two rounded wooden clay planks with brass studs, 3D bubbly clay lettering,
+ * living bluebirds that fly in, perch, hop and tweet, swaying floral creepers,
+ * and drifting petals in the breeze.
+ * Coordinates are in 1200 × 580 sign pixels.
  */
 const W = 1200;
 const H = 580;
 
 /** Letter tops a bird can stand on (feet position). */
 const PERCHES: [number, number][] = [
-  [146, 32],
-  [432, 80],
-  [720, 74],
-  [240, 284],
-  [744, 285],
-  [936, 288],
+  [380, 82],
+  [520, 80],
+  [710, 82],
+  [220, 280],
+  [600, 276],
+  [960, 280],
 ];
 
 /** Hanging creeper strands: anchor, length, sway speed. */
 const STRANDS: { x: number; y: number; len: number; dur: number; delay: number; flower?: string }[] = [
-  { x: 70, y: 300, len: 120, dur: 4.6, delay: 0 },
-  { x: 655, y: 330, len: 95, dur: 5.3, delay: -1.2, flower: "pink" },
-  { x: 1120, y: 340, len: 130, dur: 4.1, delay: -2.4 },
-  { x: 170, y: 540, len: 80, dur: 5.8, delay: -0.6, flower: "white" },
-  { x: 560, y: 560, len: 70, dur: 4.9, delay: -3.1 },
-  { x: 980, y: 555, len: 90, dur: 5.5, delay: -1.8, flower: "pink" },
-];
+  [85, 300, 115, 4.6, 0],
+  [310, 470, 85, 5.2, -1.0, "white"],
+  [660, 480, 95, 5.3, -1.2, "pink"],
+  [1115, 320, 125, 4.1, -2.4],
+  [890, 475, 90, 5.5, -1.8, "pink"],
+].map(([x, y, len, dur, delay, flower]) => ({
+  x: x as number,
+  y: y as number,
+  len: len as number,
+  dur: dur as number,
+  delay: delay as number,
+  flower: flower as string | undefined,
+}));
 
-const PETALS = Array.from({ length: 7 }, (_, i) => ({ x: 90 + i * 160 + (i % 2) * 40, delay: i * 1.7, dur: 7 + (i % 3) * 1.5, pink: i % 2 === 0 }));
+const PETALS = Array.from({ length: 8 }, (_, i) => ({
+  x: 80 + i * 140 + (i % 2) * 35,
+  delay: i * 1.5,
+  dur: 7 + (i % 3) * 1.5,
+  pink: i % 2 === 0,
+}));
 
 type Bird = {
   state: "away" | "fly" | "perch" | "leave";
@@ -227,9 +238,199 @@ export function TitleSign({ className }: { className?: string }) {
 
   return (
     <div className={`relative ${className ?? ""}`}>
-      <img src={titleWood} alt="Mayur's World" width={W} height={H} className="relative block h-auto w-full" />
-      <svg ref={svgEl} viewBox={`0 0 ${W} ${H}`} className="pointer-events-none absolute inset-0 h-full w-full overflow-visible" aria-hidden>
-        {/* creepers swaying from the letters, a blossom on some */}
+      <svg
+        ref={svgEl}
+        viewBox={`0 0 ${W} ${H}`}
+        className="block h-auto w-full overflow-visible select-none"
+        aria-label="Mayur's Wonderworld"
+      >
+        <defs>
+          <filter id="woodShadow" x="-10%" y="-10%" width="125%" height="135%">
+            <feDropShadow dx="0" dy="16" stdDeviation="14" floodColor="#221226" floodOpacity="0.45" />
+          </filter>
+          <filter id="pillShadow" x="-10%" y="-10%" width="120%" height="130%">
+            <feDropShadow dx="0" dy="4" stdDeviation="4" floodColor="#221226" floodOpacity="0.25" />
+          </filter>
+          <filter id="textDropShadow" x="-10%" y="-10%" width="120%" height="130%">
+            <feDropShadow dx="0" dy="5" stdDeviation="4" floodColor="#2A141A" floodOpacity="0.5" />
+          </filter>
+          <linearGradient id="clayWoodGrad1" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="#F5C5A8" />
+            <stop offset="50%" stopColor="#E6A886" />
+            <stop offset="100%" stopColor="#C9825E" />
+          </linearGradient>
+          <linearGradient id="clayWoodGrad2" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="#F7CEB2" />
+            <stop offset="50%" stopColor="#EAA885" />
+            <stop offset="100%" stopColor="#C87F5A" />
+          </linearGradient>
+          <linearGradient id="mayurGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="#FFFDFC" />
+            <stop offset="60%" stopColor="#FFF2E5" />
+            <stop offset="100%" stopColor="#FAD8C3" />
+          </linearGradient>
+          <linearGradient id="wonderGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="#FFFBE6" />
+            <stop offset="45%" stopColor="#FDEAB2" />
+            <stop offset="100%" stopColor="#F7C8A4" />
+          </linearGradient>
+          <linearGradient id="ropeGrad" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stopColor="#9C7756" />
+            <stop offset="50%" stopColor="#D9B48F" />
+            <stop offset="100%" stopColor="#7A583A" />
+          </linearGradient>
+        </defs>
+
+        {/* Top hanging ropes with bronze loop rings */}
+        {[350, 850].map((rx) => (
+          <g key={rx}>
+            <rect x={rx - 7} y={-60} width="14" height="110" rx="7" fill="url(#ropeGrad)" />
+            <circle cx={rx} cy="50" r="14" fill="#6A4528" stroke="#D9B48F" strokeWidth="4" />
+            <circle cx={rx} cy="50" r="6" fill="#2D1B10" />
+          </g>
+        ))}
+
+        {/* Connecting rope brackets between upper and lower planks */}
+        {[350, 850].map((rx) => (
+          <g key={`mid-${rx}`}>
+            <rect x={rx - 6} y="180" width="12" height="75" rx="6" fill="url(#ropeGrad)" />
+            <circle cx={rx} cy="190" r="10" fill="#6A4528" stroke="#D9B48F" strokeWidth="3" />
+            <circle cx={rx} cy="245" r="10" fill="#6A4528" stroke="#D9B48F" strokeWidth="3" />
+          </g>
+        ))}
+
+        {/* UPPER BOARD: "Mayur's" */}
+        <g filter="url(#woodShadow)">
+          <rect x="250" y="38" width="700" height="155" rx="38" fill="url(#clayWoodGrad1)" stroke="#A96E49" strokeWidth="6" />
+          <rect x="262" y="50" width="676" height="131" rx="26" fill="none" stroke="#FFF2E2" strokeWidth="3.5" opacity="0.65" />
+          {/* Wood corner rivets */}
+          {[
+            [285, 70],
+            [915, 70],
+            [285, 160],
+            [915, 160],
+          ].map(([cx, cy], i) => (
+            <g key={i}>
+              <circle cx={cx} cy={cy} r="8" fill="#5E381E" />
+              <circle cx={cx - 1.5} cy={cy - 1.5} r="4" fill="#D9A87C" />
+            </g>
+          ))}
+        </g>
+
+        {/* LOWER BOARD: "WONDERWORLD" */}
+        <g filter="url(#woodShadow)">
+          <rect x="60" y="235" width="1080" height="235" rx="46" fill="url(#clayWoodGrad2)" stroke="#A96E49" strokeWidth="7" />
+          <rect x="74" y="249" width="1052" height="207" rx="36" fill="none" stroke="#FFF2E2" strokeWidth="4" opacity="0.65" />
+          {/* Wood corner rivets */}
+          {[
+            [100, 275],
+            [1100, 275],
+            [100, 430],
+            [1100, 430],
+          ].map(([cx, cy], i) => (
+            <g key={i}>
+              <circle cx={cx} cy={cy} r="9" fill="#5E381E" />
+              <circle cx={cx - 2} cy={cy - 2} r="4.5" fill="#D9A87C" />
+            </g>
+          ))}
+        </g>
+
+        {/* BUBBLY CLAY TYPOGRAPHY */}
+        {/* "Mayur's" */}
+        <g>
+          <text
+            x="600"
+            y="156"
+            textAnchor="middle"
+            fontFamily="Fredoka, system-ui, sans-serif"
+            fontWeight="700"
+            fontSize="106"
+            fill="#3B1E12"
+            opacity="0.85"
+          >
+            Mayur's
+          </text>
+          <text
+            x="600"
+            y="149"
+            textAnchor="middle"
+            fontFamily="Fredoka, system-ui, sans-serif"
+            fontWeight="700"
+            fontSize="106"
+            fill="url(#mayurGrad)"
+            stroke="#FFFFFF"
+            strokeWidth="3.5"
+            paintOrder="stroke fill"
+          >
+            Mayur's
+          </text>
+        </g>
+
+        {/* "WONDERWORLD" */}
+        <g>
+          <text
+            x="600"
+            y="384"
+            textAnchor="middle"
+            fontFamily="Fredoka, system-ui, sans-serif"
+            fontWeight="700"
+            fontSize="134"
+            letterSpacing="6"
+            fill="#381D14"
+            opacity="0.9"
+          >
+            WONDERWORLD
+          </text>
+          <text
+            x="600"
+            y="376"
+            textAnchor="middle"
+            fontFamily="Fredoka, system-ui, sans-serif"
+            fontWeight="700"
+            fontSize="134"
+            letterSpacing="6"
+            fill="url(#wonderGrad)"
+            stroke="#FFFFFF"
+            strokeWidth="4"
+            paintOrder="stroke fill"
+          >
+            WONDERWORLD
+          </text>
+        </g>
+
+        {/* Subtitle Pill Badge */}
+        <g filter="url(#pillShadow)">
+          <rect x="410" y="416" width="380" height="38" rx="19" fill="#C4E8CF" stroke="#FFF6E9" strokeWidth="2.5" />
+          <text
+            x="600"
+            y="442"
+            textAnchor="middle"
+            fontFamily="Fredoka, system-ui, sans-serif"
+            fontWeight="600"
+            fontSize="17"
+            letterSpacing="5"
+            fill="#274631"
+          >
+            A MINIATURE ADVENTURE
+          </text>
+        </g>
+
+        {/* Decorative corner blossom pins */}
+        {[
+          [262, 50, "#F7CDE2"],
+          [938, 50, "#DCC8F5"],
+          [74, 249, "#F7CDE2"],
+          [1126, 249, "#F7E3A3"],
+        ].map(([bx, by, col], i) => (
+          <g key={`flower-${i}`} transform={`translate(${bx} ${by})`}>
+            {[0, 72, 144, 216, 288].map((a) => (
+              <ellipse key={a} cx="0" cy="-9" rx="6.5" ry="9" transform={`rotate(${a})`} fill={col as string} opacity="0.95" />
+            ))}
+            <circle r="5" fill="#FFF6E9" />
+          </g>
+        ))}
+
+        {/* Creepers swaying from the letters, with blossoms */}
         {STRANDS.map((s, i) => (
           <g key={i} transform={`translate(${s.x} ${s.y})`}>
             <g
@@ -267,11 +468,14 @@ export function TitleSign({ className }: { className?: string }) {
             </g>
           </g>
         ))}
-        {/* petals carried off by the breeze */}
+
+        {/* Petals carried off by the breeze */}
         {!reduced &&
           PETALS.map((p, i) => (
-            <ellipse key={i} className="tb-petal" cx={p.x} cy={H * 0.5} rx="5" ry="3.2" fill={p.pink ? "#ffb3cf" : "#fffaf2"} style={{ animationDelay: `${p.delay}s`, animationDuration: `${p.dur}s` }} />
+            <ellipse key={i} className="tb-petal" cx={p.x} cy={H * 0.5} rx="5.5" ry="3.5" fill={p.pink ? "#ffb3cf" : "#fffaf2"} style={{ animationDelay: `${p.delay}s`, animationDuration: `${p.dur}s` }} />
           ))}
+
+        {/* Living Bluebirds on the letters */}
         {[0, 1].map((i) => (
           <g key={i} ref={(el) => {
             birdEls.current[i] = el;
@@ -279,10 +483,12 @@ export function TitleSign({ className }: { className?: string }) {
             <BirdShape />
           </g>
         ))}
+
+        {/* Bird song notes */}
         {[0, 1].map((i) => (
           <text key={i} ref={(el) => {
             noteEls.current[i] = el;
-          }} fontSize="30" fill="#fffaf0" stroke="#3a6a2a" strokeWidth="1.2" style={{ display: "none" }}>
+          }} fontSize="32" fill="#FFF8EB" stroke="#3a6a2a" strokeWidth="1.5" style={{ display: "none" }}>
             ♪
           </text>
         ))}

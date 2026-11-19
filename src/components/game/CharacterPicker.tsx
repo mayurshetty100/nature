@@ -47,10 +47,10 @@ const POWER_ICON: Record<PowerId, typeof Dog> = { fly: Wind, speed: Gauge, telep
 const tile = (on: boolean) =>
   cn(
     // phones: compact tiles (icon + name) so the whole picker fits without scrolling
-    "relative flex min-w-0 flex-col justify-center gap-0.5 rounded-xl border px-2 py-1.5 text-left transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:min-h-20 sm:gap-1 sm:rounded-2xl sm:px-3.5 sm:py-3 short:min-h-0 short:py-1.5",
+    "relative flex min-w-0 flex-col justify-center gap-0.5 rounded-2xl border px-2.5 py-2 text-left transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:min-h-20 sm:gap-1.5 sm:rounded-2xl sm:px-3.5 sm:py-3 short:min-h-0 short:py-1.5 cursor-pointer shadow-sm active:scale-[0.98]",
     on
-      ? "border-amber/70 bg-amber/15 shadow-glow"
-      : "border-panel-border bg-secondary/40 hover:bg-secondary/70",
+      ? "border-amber/80 bg-amber/20 shadow-glow text-cream"
+      : "border-panel-border bg-secondary/35 hover:bg-secondary/65 text-cream/90",
   );
 
 /** 3D stage on top, name and details in their own strip underneath — text never sits on the model. */
@@ -64,12 +64,12 @@ function PreviewCard({
   children: React.ReactNode;
 }) {
   return (
-    <div className="flex flex-row overflow-hidden rounded-2xl border border-panel-border bg-secondary/40 sm:flex-col">
+    <div className="flex flex-row overflow-hidden rounded-3xl border border-panel-border bg-secondary/40 sm:flex-col shadow-clay backdrop-blur-sm">
       <div className="relative h-36 w-[44%] shrink-0 sm:h-56 sm:w-auto short:h-28">
         {stage}
         {overlay}
       </div>
-      <div className="min-w-0 flex-1 space-y-1 border-l border-panel-border/70 bg-scrim/25 px-2.5 py-2 sm:border-l-0 sm:border-t sm:px-3.5 sm:py-3">
+      <div className="min-w-0 flex-1 space-y-1 border-l border-panel-border/70 bg-scrim/30 px-3 py-2.5 sm:border-l-0 sm:border-t sm:px-4 sm:py-3.5">
         {children}
       </div>
     </div>
